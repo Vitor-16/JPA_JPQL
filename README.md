@@ -17,7 +17,7 @@ Utilizamos annotations para mapear classes Java para tabelas do banco de dados.
 
 **Exemplo:**
 
-\`\`\`java
+```java
 @Entity
 @Table(name = "produto")
 public class Produto {
@@ -33,7 +33,7 @@ public class Produto {
 
     // Getters e setters
 }
-\`\`\`
+```
 
 # API de Criteria
 A API de Criteria do JPA permite construir consultas de forma programática e tipada.
@@ -47,19 +47,19 @@ Root<Produto> root = query.from(Produto.class);
 query.select(root).where(builder.equal(root.get("nome"), "Produto Exemplo"));
 
 List<Produto> resultados = entityManager.createQuery(query).getResultList();
-\`\`\`
+```
 
 # JPQL (Java Persistence Query Language)
 JPQL é uma poderosa linguagem de consulta baseada em SQL, porém orientada a objetos.
 
 **Exemplo:**
 
-\`\`\`java
+```java
 String jpql = "SELECT p FROM Produto p WHERE p.preco > :precoMinimo";
 TypedQuery<Produto> query = entityManager.createQuery(jpql, Produto.class);
 query.setParameter("precoMinimo", 100.0);
 List<Produto> resultados = query.getResultList();
-\`\`\`
+```
 
 # Pré-requisitos
 ### Java 8 ou superior
